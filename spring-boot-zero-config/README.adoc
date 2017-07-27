@@ -1,0 +1,40 @@
+= Spring Boot Zero Config on Openshift
+
+Mostly the same as https://maven.fabric8.io/[fabric8-maven-plugin]
+
+Do you have the right openshift project you want to work in?
+
+.new-project
+[source,bash]
+----
+oc new-project greenfield
+----
+
+Now a first run to get something to show
+
+.first-run
+[source,bash]
+----
+mvn -Dfabric8.mode=openshift package fabric8:build
+----
+
+
+Actual version can be found for:
+
+
+.version_seeker
+|===
+|pom property |location (url)
+
+|fabric8.version
+|https://maven.repository.redhat.com/ga/io/fabric8/fabric8-project-bom-camel-spring-boot/
+
+
+|Column 1, row 2
+|Column 2, row 2
+
+
+|Column 1, row 3
+|Column 2, row 3
+
+|===
