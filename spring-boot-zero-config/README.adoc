@@ -38,3 +38,5 @@ Actual version can be found for:
 |Column 2, row 3
 
 |===
+
+openshift/fis-java-openshift:2.0
