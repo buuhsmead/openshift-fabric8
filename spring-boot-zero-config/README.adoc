@@ -2,6 +2,8 @@
 
 Mostly the same as https://maven.fabric8.io/[fabric8-maven-plugin]
 
+This is a S2I from Source build.
+
 Do you have the right openshift project you want to work in?
 
 .new-project
