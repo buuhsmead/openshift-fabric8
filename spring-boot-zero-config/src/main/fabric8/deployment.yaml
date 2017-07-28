@@ -3,11 +3,11 @@ spec:
   template:
     spec:
       containers:
-        -
+        - 
           resources:
             requests:
-              cpu: "0.002"
-              memory: 400Mi
+              cpu: "0.2"
+              memory: 128Mi
             limits:
-              cpu: "0.5"
-              memory: 600Mi
+              cpu: "1.0"
+              memory: 512Mi

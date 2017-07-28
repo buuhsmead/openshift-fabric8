@@ -50,12 +50,12 @@
                 <executions>
                     <execution>
                         <goals>
-                            <goal>resource</goal>
                             <goal>build</goal>
-                            <goal>deploy</goal>
+                            <!-- bound the execution to build.
+                            so we can use 'mvn install' -->
                         </goals>
                     </execution>
-                </executions>
+		</executions>
             </plugin>
         </plugins>
     </build>

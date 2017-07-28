@@ -24,20 +24,20 @@
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        
-        <!--<spring-boot-maven-plugin.version>1.5.4.RELEASE</spring-boot-maven-plugin.version>-->
-
 
         <!-- configure the versions you want to use here -->
         <fabric8.version>2.2.170.redhat-000013</fabric8.version> <!-- 2.2.170 -->
-	<spring-boot.version>1.4.1.RELEASE</spring-boot.version>
+        <spring-boot.version>1.4.1.RELEASE</spring-boot.version>
 
         <!-- maven plugin versions -->
         <fabric8.maven.plugin.version>3.1.80.redhat-000013</fabric8.maven.plugin.version> <!-- 3.5.21 -->
-        <!--<fabric8.maven.plugin.version>3.5.21</fabric8.maven.plugin.version>-->
         <maven-compiler-plugin.version>3.3</maven-compiler-plugin.version>
         <maven-surefire-plugin.version>2.18.1</maven-surefire-plugin.version>
+        <maven-bundle-plugin.version>2.3.7</maven-bundle-plugin.version>
+        <maven-resources-plugin.version>2.7</maven-resources-plugin.version>
+        <maven-install-plugin.version>2.5.2</maven-install-plugin.version>
 
+        <karaf.plugin.version>4.0.8.redhat-000026</karaf.plugin.version>
     </properties>
 
     <dependencyManagement>
@@ -49,6 +49,14 @@
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
+
+            <!--<dependency>-->
+                <!--<groupId>io.fabric8</groupId>-->
+                <!--<artifactId>fabric8-project-bom-fuse-karaf</artifactId>-->
+                <!--<version>${fabric8.version}</version>-->
+                <!--<type>pom</type>-->
+                <!--<scope>import</scope>-->
+            <!--</dependency>-->
         </dependencies>
     </dependencyManagement>
 
