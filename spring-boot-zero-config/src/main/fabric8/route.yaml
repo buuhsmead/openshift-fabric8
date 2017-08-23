@@ -1,0 +1,5 @@
+kind: Route
+spec:
+  to:
+    kind: Service
+    name: spring-boot-zero-config

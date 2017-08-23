@@ -1,0 +1,10 @@
+  kind: "Service"
+  metadata:
+    annotations:
+      fabric8.io/iconUrl: "img/icons/camel.svg"
+  spec:
+    ports:
+    - name: "http"
+      port: 80
+      protocol: "TCP"
+      targetPort: 8080

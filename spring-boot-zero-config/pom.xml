@@ -18,22 +18,25 @@
     <dependencies>
         <dependency>
             <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-actuator</artifactId>
+            <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-web</artifactId>
+            <artifactId>spring-boot-starter-actuator</artifactId>
         </dependency>
-
         <dependency>
             <groupId>org.apache.camel</groupId>
             <artifactId>camel-spring-boot-starter</artifactId>
         </dependency>
 
+        <!-- Camel -->
+        <!-- https://github.com/apache/camel/tree/master/examples -->
         <dependency>
             <groupId>org.apache.camel</groupId>
             <artifactId>camel-stream</artifactId>
         </dependency>
+
+
     </dependencies>
 
     <build>
@@ -41,7 +44,14 @@
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
-            <version>${spring-boot.version}</version>
+                <version>${spring-boot.version}</version>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>repackage</goal>
+                        </goals>
+                    </execution>
+                </executions>
             </plugin>
             <plugin>
                 <groupId>io.fabric8</groupId>
@@ -50,12 +60,11 @@
                 <executions>
                     <execution>
                         <goals>
+                            <goal>resource</goal>
                             <goal>build</goal>
-                            <!-- bound the execution to build.
-                            so we can use 'mvn install' -->
                         </goals>
                     </execution>
-		</executions>
+                </executions>
             </plugin>
         </plugins>
     </build>

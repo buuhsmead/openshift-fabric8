@@ -30,7 +30,9 @@
         <spring-boot.version>1.4.1.RELEASE</spring-boot.version>
 
         <!-- maven plugin versions -->
-        <fabric8.maven.plugin.version>3.1.80.redhat-000013</fabric8.maven.plugin.version> <!-- 3.5.21 -->
+        <fabric8.maven.plugin.version>3.1.80.redhat-000013</fabric8.maven.plugin.version> <!-- 3.5.25 -->
+        <!--<fabric8.maven.plugin.version>3.5.25</fabric8.maven.plugin.version> &lt;!&ndash; 3.1.80.redhat-000013 &ndash;&gt;-->
+
         <maven-compiler-plugin.version>3.3</maven-compiler-plugin.version>
         <maven-surefire-plugin.version>2.18.1</maven-surefire-plugin.version>
         <maven-bundle-plugin.version>2.3.7</maven-bundle-plugin.version>
@@ -86,5 +88,24 @@
     </modules>
 
 
+    <!--<profiles>-->
+    <!--<profile>-->
+    <!--<id>jdk9-build</id>-->
+    <!--<activation>-->
+    <!--<jdk>9</jdk>-->
+    <!--</activation>-->
+    <!--<build>-->
+    <!--<plugins>-->
+    <!--<plugin>-->
+    <!--<artifactId>maven-surefire-plugin</artifactId>-->
+    <!--<configuration>-->
+    <!--<argLine>&#45;&#45;add-modules java.xml.bind &#45;&#45;add-opens java.base/java.lang=ALL-UNNAMED &#45;&#45;add-opens java.base/java.lang.invoke=ALL-UNNAMED</argLine>-->
+    <!--</configuration>-->
+    <!--</plugin>-->
+    <!--</plugins>-->
+    <!--</build>-->
+    <!--</profile>-->
+    <!--</profiles>-->
+    <!---->
 </project>
 
