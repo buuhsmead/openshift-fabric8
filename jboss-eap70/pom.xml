@@ -11,10 +11,118 @@
         <version>0.1.0-SNAPSHOT</version>
     </parent>
 
-    <packaging>jar</packaging>
+    <packaging>war</packaging>
 
     <artifactId>jboss-eap70</artifactId>
 
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <maven.compiler.source>1.8</maven.compiler.source>
+        <maven.compiler.target>1.8</maven.compiler.target>
+        <maven-war-plugin.version>3.1.0</maven-war-plugin.version>
+    </properties>
+
+    <dependencies>
+        <!-- https://mvnrepository.com/artifact/javax/javaee-api -->
+        <dependency>
+            <groupId>javax</groupId>
+            <artifactId>javaee-api</artifactId>
+            <version>7.0</version>
+            <scope>provided</scope>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-war-plugin</artifactId>
+                <version>${maven-war-plugin.version}</version>
+                <!--<configuration>-->
+                    <!--<failOnMissingWebXml>false</failOnMissingWebXml>-->
+                <!--</configuration>-->
+            </plugin>
+        </plugins>
+    </build>
+
+    <profiles>
+        <profile>
+            <!-- When built in OpenShift the 'openshift' profile will be used when invoking mvn. -->
+            <!-- Use this profile for any OpenShift specific customization your app will need. -->
+            <!-- By default that is to put the resulting archive into the 'deployments' folder. -->
+            <!-- http://maven.apache.org/guides/mini/guide-building-for-different-environments.html -->
+            <id>openshift</id>
+            <build>
+                <finalName>InsultApp</finalName>
+                <plugins>
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-war-plugin</artifactId>
+                        <version>${maven-war-plugin.version}</version>
+                        <configuration>
+                            <!--<failOnMissingWebXml>false</failOnMissingWebXml>-->
+                            <outputDirectory>target</outputDirectory>
+                            <warName>ROOT</warName>
+                        </configuration>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+    </profiles>
 
 </project>
+
+
+    <!--<build>-->
+        <!--<plugins>-->
+            <!--<plugin>-->
+                <!--<groupId>org.wildfly.plugins</groupId>-->
+                <!--<artifactId>wildfly-maven-plugin</artifactId>-->
+            <!--</plugin>-->
+            <!--<plugin>-->
+                <!--<groupId>org.apache.maven.plugins</groupId>-->
+                <!--<artifactId>maven-ejb-plugin</artifactId>-->
+            <!--</plugin>-->
+            <!--<plugin>-->
+                <!--<groupId>io.fabric8</groupId>-->
+                <!--<artifactId>fabric8-maven-plugin</artifactId>-->
+                <!--<version>${fabric8.maven.plugin.version}</version>-->
+                <!--<executions>-->
+                    <!--<execution>-->
+                        <!--<goals>-->
+                            <!--<goal>resource</goal>-->
+                            <!--<goal>build</goal>-->
+                        <!--</goals>-->
+                    <!--</execution>-->
+                <!--</executions>-->
+            <!--</plugin>-->
+        <!--</plugins>-->
+    <!--</build>-->
+
+    <!--<dependencies>-->
+
+        <!--&lt;!&ndash; Import the CDI API, we use provided scope as the API is included in JBoss EAP &ndash;&gt;-->
+        <!--<dependency>-->
+            <!--<groupId>javax.enterprise</groupId>-->
+            <!--<artifactId>cdi-api</artifactId>-->
+            <!--<scope>provided</scope>-->
+        <!--</dependency>-->
+
+        <!--&lt;!&ndash; Import the Common Annotations API (JSR-250), we use provided scope-->
+            <!--as the API is included in JBoss EAP &ndash;&gt;-->
+        <!--<dependency>-->
+            <!--<groupId>org.jboss.spec.javax.annotation</groupId>-->
+            <!--<artifactId>jboss-annotations-api_1.2_spec</artifactId>-->
+            <!--<scope>provided</scope>-->
+        <!--</dependency>-->
+
+        <!--&lt;!&ndash; Import the JAX-RS API, we use provided scope as the API is included in JBoss EAP &ndash;&gt;-->
+        <!--<dependency>-->
+            <!--<groupId>org.jboss.spec.javax.ws.rs</groupId>-->
+            <!--<artifactId>jboss-jaxrs-api_2.0_spec</artifactId>-->
+            <!--<scope>provided</scope>-->
+        <!--</dependency>-->
+    <!--</dependencies>-->
+
+<!--</project>-->
 
